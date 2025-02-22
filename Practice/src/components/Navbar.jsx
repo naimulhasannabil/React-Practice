@@ -17,12 +17,12 @@ export default function Navbar(props) {
             {/* Navigation Links */}
             <ul className="hidden sm:flex space-x-6">
               <li>
-                <a href="/" className="text-gray-700 hover:text-gray-900 transition duration-300">
+                <a href="/" className="text-gray-700 hover:text-green-500 transition duration-300">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/" className="text-gray-700 hover:text-gray-900 transition duration-300">
+                <a href="/" className="text-gray-700 hover:text-green-500 transition duration-300">
                   {props.aboutText}
                 </a>
               </li>
