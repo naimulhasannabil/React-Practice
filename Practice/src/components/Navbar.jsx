@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 
 export default function Navbar(props) {
   return (
@@ -21,7 +23,7 @@ export default function Navbar(props) {
               </li>
               <li>
                 <a href="/" className="text-gray-700 hover:text-gray-900 transition duration-300">
-                  About
+                  {props.aboutText}
                 </a>
               </li>
             </ul>
@@ -47,4 +49,8 @@ export default function Navbar(props) {
       </div>
     </nav>
   )
+}
+
+Navbar.propTypes = {title : PropTypes.string,
+  aboutText : PropTypes.string
 }
