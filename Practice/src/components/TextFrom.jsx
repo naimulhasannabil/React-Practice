@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
+
+
 
 export default function TextFrom(props) {
+    const [text, setText] = useState('Enter text here');
   return (
     <div>
         <h1 className='ml-3 my-3 text-3xl'>{props.heading}</h1>
