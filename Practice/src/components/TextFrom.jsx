@@ -9,6 +9,7 @@ export default function TextFrom() {
       </div>
       <div className="mb-3">
         <label htmlFor="exampleFromControlTextarea1" className='form-label'>Example textarea</label>
+        <textarea name="" id="exampleFromControlTextarea1" rows='3' className='form-control'></textarea>
       </div>
     </div>
   )
