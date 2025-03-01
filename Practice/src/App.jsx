@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <Navbar title="TextUtils" aboutText="About Us"/>
-    <TextFrom/>
+    <TextFrom heading='Enter the text to analyze below'/>
     </>
   )
 }
