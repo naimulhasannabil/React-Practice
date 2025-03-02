@@ -5,11 +5,13 @@ import React, {useState} from 'react'
 export default function TextFrom(props) {
 
     const handleUpClick = ()=> {
-      console.log("UpperCase was click")
-      setText("You have clicked on handleUpclick")
+      // console.log("UpperCase was click")
+      let newText = text.toUpperCase();
+      setText(newText)
     }
-    const handleOnChange = ()=> {
-      console.log("On Change")
+    const handleOnChange = (event)=> {
+      // console.log("On Change")
+      setText(event.target.value)
     }
     const [text, setText] = useState('Enter text here');
     // text = 'new Text'; wrong way to change the state
