@@ -6,6 +6,7 @@ export default function TextFrom(props) {
 
     const handleUpClick = ()=> {
       console.log("UpperCase was click")
+      setText("You have clicked on handleUpclick")
     }
     const handleOnChange = ()=> {
       console.log("On Change")
@@ -15,7 +16,7 @@ export default function TextFrom(props) {
     // setText('new Text'); Correct way to change the state
   return (
     <div>
-        <h1 className='ml-3 my-3 text-3xl'>{props.heading} - {text}</h1>
+        <h1 className='ml-3 my-3 text-3xl'>{props.heading}</h1>
       <div className="p-4">
       <textarea
         id="description"
