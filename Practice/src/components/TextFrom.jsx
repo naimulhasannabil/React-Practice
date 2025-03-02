@@ -3,6 +3,10 @@ import React, {useState} from 'react'
 
 
 export default function TextFrom(props) {
+
+    const handleUpClick = ()=> {
+      console.log("UpperCase was click")
+    }
     const [text, setText] = useState('Enter text here');
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
@@ -18,7 +22,7 @@ export default function TextFrom(props) {
         placeholder="Enter your description here..."
       ></textarea>
     </div>
-    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleUpClick}>
   Convert to Uppercase
 </button>
     </div>
