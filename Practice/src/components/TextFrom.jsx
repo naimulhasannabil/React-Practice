@@ -35,6 +35,7 @@ export default function TextFrom(props) {
     </div>
     <div className="container text-center">
       <h1>Your text summary</h1>
+      <p>3535 words and 5646613 characters</p>
     </div>
     </>
   )
