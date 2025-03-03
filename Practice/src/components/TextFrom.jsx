@@ -17,7 +17,8 @@ export default function TextFrom(props) {
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
   return (
-    <div>
+    <>
+    <div className='container'>
         <h1 className='ml-3 my-3 text-3xl'>{props.heading}</h1>
       <div className="p-4">
       <textarea
@@ -32,5 +33,9 @@ export default function TextFrom(props) {
   Convert to Uppercase
 </button>
     </div>
+    <div className="container text-center">
+      <h1>Your text summary</h1>
+    </div>
+    </>
   )
 }
