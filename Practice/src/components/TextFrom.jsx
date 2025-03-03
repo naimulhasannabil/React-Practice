@@ -33,9 +33,9 @@ export default function TextFrom(props) {
   Convert to Uppercase
 </button>
     </div>
-    <div className="container text-center">
+    <div className="container text-center my-2">
       <h1>Your text summary</h1>
-      <p>3535 words and 5646613 characters</p>
+      <p>{text.split(" ").length} words and {text.length} characters</p>
     </div>
     </>
   )
