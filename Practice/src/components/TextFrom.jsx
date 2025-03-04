@@ -36,6 +36,7 @@ export default function TextFrom(props) {
     <div className="container text-center my-2">
       <h1>Your text summary</h1>
       <p>{text.split(" ").length} words and {text.length} characters</p>
+      <p>{0.008*text.split(" ").length} Minutes Read</p>
     </div>
     </>
   )
