@@ -14,6 +14,11 @@ export default function TextFrom(props) {
       let newText = text.toLowerCase();
       setText(newText)
     }
+    const handleClearClick = ()=> {
+      // console.log("LowerCase was click")
+      let newText = '';
+      setText(newText)
+    }
     const handleOnChange = (event)=> {
       // console.log("On Change")
       setText(event.target.value)
@@ -39,6 +44,9 @@ export default function TextFrom(props) {
 </button>
     <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleLoClick}>
   Convert to Lowercase
+</button>
+    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleClearClick}>
+  Clear Text
 </button>
     </div>
     <div className="container text-center my-2">
