@@ -28,34 +28,58 @@ export default function TextFrom(props) {
     // setText('new Text'); Correct way to change the state
   return (
     <>
-    <div className='container'>
-        <h1 className='ml-3 my-3 text-3xl'>{props.heading}</h1>
-      <div className="p-4">
-      <textarea
-        id="description"
-        name="description"
-        rows={10} value={text}
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-        placeholder="Enter your description here..." onChange={handleOnChange}
-      ></textarea>
-    </div>
-    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleUpClick}>
-  Convert to Uppercase
-</button>
-    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleLoClick}>
-  Convert to Lowercase
-</button>
-    <button className="ml-5 border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md" onClick={handleClearClick}>
-  Clear Text
-</button>
-    </div>
-    <div className="container text-center my-2">
-      <h1>Your text summary</h1>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
-      <p>{0.008*text.split(" ").length} Minutes Read</p>
-      <h2>Preview</h2>
-      <p>{text}</p>
-    </div>
+    <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+  {/* Heading */}
+  <h1 className='ml-3 my-3 text-2xl sm:text-3xl lg:text-4xl'>{props.heading}</h1>
+
+  {/* Textarea */}
+  <div className="p-4">
+    <textarea
+      id="description"
+      name="description"
+      rows={10}
+      value={text}
+      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm sm:text-base"
+      placeholder="Enter your description here..."
+      onChange={handleOnChange}
+    ></textarea>
+  </div>
+
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 p-4">
+    <button
+      className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+      onClick={handleUpClick}
+    >
+      Convert to Uppercase
+    </button>
+    <button
+      className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+      onClick={handleLoClick}
+    >
+      Convert to Lowercase
+    </button>
+    <button
+      className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+      onClick={handleClearClick}
+    >
+      Clear Text
+    </button>
+  </div>
+
+  {/* Text Summary */}
+  <div className="container mx-auto text-center my-4 px-4 sm:px-6 lg:px-8">
+    <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold">Your Text Summary</h1>
+    <p className="text-sm sm:text-base lg:text-lg">
+      {text.split(" ").filter(word => word !== "").length} words and {text.length} characters
+    </p>
+    <p className="text-sm sm:text-base lg:text-lg">
+      {0.008 * text.split(" ").filter(word => word !== "").length} Minutes Read
+    </p>
+    <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mt-4">Preview</h2>
+    <p className="text-sm sm:text-base lg:text-lg break-words">{text}</p>
+  </div>
+</div>
     </>
   )
 }
