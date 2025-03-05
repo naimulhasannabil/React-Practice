@@ -80,6 +80,6 @@ export default function TextFrom(props) {
     <p className="text-sm sm:text-base lg:text-lg break-words">{text}</p>
   </div>
 </div>
-    </>
+    </> 
   )
 }
