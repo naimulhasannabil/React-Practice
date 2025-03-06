@@ -48,6 +48,7 @@ const seasons = [
 
 export default function About() {
   const [activeSeason, setActiveSeason] = useState(0)
+  const [darkMode, setDarkMode] = useState(false)
 
   const nextSeason = () => {
     setActiveSeason((prev) => (prev === seasons.length - 1 ? 0 : prev + 1))
@@ -57,12 +58,16 @@ export default function About() {
     setActiveSeason((prev) => (prev === 0 ? seasons.length - 1 : prev - 1))
   }
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
   const season = seasons[activeSeason]
   const Icon = season.icon
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900">The Four Seasons</h1>
+    <div className={`min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"} py-12 px-4 sm:px-6 lg:px-8`}>
+      <h1 className={`text-4xl md:text-5xl font-bold text-center mb-12 ${darkMode ? "text-white" : "text-gray-900"}`}>The Four Seasons</h1>
 
       <div className="max-w-7xl mx-auto">
         <AnimatePresence mode="wait">
@@ -72,7 +77,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl bg-white"
+            className={`relative rounded-3xl overflow-hidden shadow-2xl ${darkMode ? "bg-gray-800" : "bg-white"}`}
           >
             {/* Hero Section */}
             <div className={`relative h-[400px] bg-gradient-to-br ${season.gradient}`}>
@@ -85,13 +90,13 @@ export default function About() {
             <div className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-6">
                 <Icon className={`w-8 h-8 ${season.color}`} />
-                <span className="text-lg font-medium text-gray-700">{season.months}</span>
+                <span className={`text-lg font-medium ${darkMode ? "text-gray-300" : "text-gray-700"}`}>{season.months}</span>
               </div>
 
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">{season.description}</p>
+              <p className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-700"} mb-8 leading-relaxed`}>{season.description}</p>
 
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Characteristics:</h3>
+                <h3 className={`text-2xl font-semibold ${darkMode ? "text-gray-200" : "text-gray-800"} mb-4`}>Characteristics:</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {season.features.map((feature, index) => (
                     <motion.div
@@ -102,7 +107,7 @@ export default function About() {
                       className="flex items-center gap-3"
                     >
                       <span className={`w-3 h-3 rounded-full ${season.bgColor}`}></span>
-                      <span className="text-lg text-gray-600">{feature}</span>
+                      <span className={`text-lg ${darkMode ? "text-gray-300" : "text-gray-600"}`}>{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -112,7 +117,7 @@ export default function About() {
               <div className="flex items-center justify-between mt-8">
                 <button
                   onClick={prevSeason}
-                  className="flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors text-gray-700 font-medium"
+                  className={`flex items-center gap-2 px-6 py-3 ${darkMode ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"} rounded-xl transition-colors ${darkMode ? "text-gray-200" : "text-gray-700"} font-medium`}
                 >
                   <ChevronLeft className="w-5 h-5" />
                   Previous
@@ -124,7 +129,7 @@ export default function About() {
                       key={index}
                       onClick={() => setActiveSeason(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeSeason ? `${season.gradient} scale-125` : "bg-gray-300 hover:bg-gray-400"
+                        index === activeSeason ? `${season.gradient} scale-125` : darkMode ? "bg-gray-600 hover:bg-gray-500" : "bg-gray-300 hover:bg-gray-400"
                       }`}
                       aria-label={`Go to ${seasons[index].name}`}
                     />
@@ -133,7 +138,7 @@ export default function About() {
 
                 <button
                   onClick={nextSeason}
-                  className="flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors text-gray-700 font-medium"
+                  className={`flex items-center gap-2 px-6 py-3 ${darkMode ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"} rounded-xl transition-colors ${darkMode ? "text-gray-200" : "text-gray-700"} font-medium`}
                 >
                   Next
                   <ChevronRight className="w-5 h-5" />
@@ -163,8 +168,15 @@ export default function About() {
           ))}
         </div>
       </div>
-      <div className="Container ">
-      <button className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md">Enable Dark Mode</button>
+      <div className="Container py-2">
+        <button
+          onClick={toggleDarkMode}
+          className={`w-full sm:w-auto border ${
+            darkMode ? "border-gray-600 bg-gray-700 hover:bg-gray-600" : "border-green-600 bg-green-500 hover:bg-green-600"
+          } text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md`}
+        >
+          {darkMode ? "Enable Light Mode" : "Enable Dark Mode"}
+        </button>
       </div>
     </div>
   )
