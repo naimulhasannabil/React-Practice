@@ -25,7 +25,9 @@ export default function TextFrom(props) {
     }
     const handleCopy = () => {
       let text = document.getElementById("description");
-      text.Select();
+      text.select();
+      text.setSelectionRange(0, 9999);
+      navigator.clipboard.writeText(text.value);
     }
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
@@ -68,6 +70,12 @@ export default function TextFrom(props) {
       onClick={handleClearClick}
     >
       Clear Text
+    </button>
+    <button
+      className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+      onClick={handleCopy}
+    >
+      Copy Text
     </button>
   </div>
 
