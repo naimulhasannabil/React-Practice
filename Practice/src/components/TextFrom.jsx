@@ -23,12 +23,23 @@ export default function TextFrom(props) {
       // console.log("On Change")
       setText(event.target.value)
     }
+
+    //Old one
+    // const handleCopy = () => {
+    //   let text = document.getElementById("description");
+    //   text.select();
+    //   text.setSelectionRange(0, 9999);
+    //   navigator.clipboard.writeText(text.value);
+    // }
+
+    //New version
     const handleCopy = () => {
       let text = document.getElementById("description");
       text.select();
-      text.setSelectionRange(0, 9999);
-      navigator.clipboard.writeText(text.value);
-    }
+      navigator.clipboard.writeText(text.value).then(() => {
+        alert("Text copied to clipboard!"); // Or use a more subtle notification
+      });
+    };
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
