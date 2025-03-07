@@ -24,7 +24,8 @@ export default function TextFrom(props) {
       setText(event.target.value)
     }
     const handleCopy = () => {
-      
+      let text = document.getElementById("description");
+      text.Select();
     }
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
