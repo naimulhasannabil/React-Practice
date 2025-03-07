@@ -23,6 +23,9 @@ export default function TextFrom(props) {
       // console.log("On Change")
       setText(event.target.value)
     }
+    const handleCopy = () => {
+      
+    }
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
