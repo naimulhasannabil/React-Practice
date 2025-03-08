@@ -94,6 +94,12 @@ export default function TextFrom(props) {
     >
       Copy Text
     </button>
+    <button
+      className="w-full sm:w-auto border border-green-600 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+      onClick={handleExtraSpaces}
+    >
+      Remove Extra Spaces
+    </button>
   </div>
 
   {/* Text Summary */}
