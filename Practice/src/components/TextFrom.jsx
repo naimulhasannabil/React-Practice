@@ -40,6 +40,11 @@ export default function TextFrom(props) {
         alert("Text copied to clipboard!"); // Or use a more subtle notification
       });
     };
+
+    // Remove Extra Spaces
+    const handleExtraSpaces = () => {
+
+    }
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
