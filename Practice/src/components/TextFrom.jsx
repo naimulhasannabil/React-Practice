@@ -43,7 +43,8 @@ export default function TextFrom(props) {
 
     // Remove Extra Spaces
     const handleExtraSpaces = () => {
-
+         let newText = text.split(/[ ]+/);
+         setText(newText.join(" "))
     }
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
