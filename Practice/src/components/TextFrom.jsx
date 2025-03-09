@@ -49,6 +49,10 @@ export default function TextFrom(props) {
     const [text, setText] = useState('');
     // text = 'new Text'; wrong way to change the state
     // setText('new Text'); Correct way to change the state
+    // Dark Mode features
+    const [darkMode, setDarkMode] = useState(false);
+
+    const
   return (
     <>
     <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
