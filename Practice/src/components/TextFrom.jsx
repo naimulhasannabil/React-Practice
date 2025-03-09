@@ -58,6 +58,7 @@ export default function TextFrom(props) {
     // dynamic classes based on dark mode
     const containerClass = darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900';
     const textareaClass = darkMode ? 'bg-gray-800 text-white border-gray-700' : 'bg-white text-gray-900 border-gray-300';
+    const buttonClass = darkMode ? 'bg-gray-700 hover:bg-gray-600 border-gray-600' : 'bg-green-500 hover:bg-green-600 border-green-600';
   return (
     <>
     <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
