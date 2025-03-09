@@ -54,7 +54,9 @@ export default function TextFrom(props) {
     <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
   {/* Heading */}
   <h1 className='ml-3 my-3 text-2xl sm:text-3xl lg:text-4xl'>{props.heading}</h1>
-  <button onClick={toggleDarkMode}></button>
+  <button onClick={toggleDarkMode}>
+     {darkMode ? '🌙' : '☀️'}
+  </button>
 
   {/* Textarea */}
   <div className="p-4">
