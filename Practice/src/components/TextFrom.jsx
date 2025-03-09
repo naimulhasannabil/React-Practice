@@ -52,7 +52,9 @@ export default function TextFrom(props) {
     // Dark Mode features
     const [darkMode, setDarkMode] = useState(false);
 
-    const
+    const toogleDarkMode = () => {
+      setDarkMode(!darkMode);
+    }
   return (
     <>
     <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
