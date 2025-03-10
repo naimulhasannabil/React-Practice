@@ -107,63 +107,63 @@ export default function TextFrom(props) {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 p-4">
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleUpClick}
           >
             Convert to Uppercase
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleLoClick}
           >
             Convert to Lowercase
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleClearClick}
           >
             Clear Text
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleCopy}
           >
             Copy Text
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleExtraSpaces}
           >
             Remove Extra Spaces
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleReverseText}
           >
             Reverse Text
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleCapitalizeWords}
           >
             Capitalize Words
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleDownload}
           >
             Download Text
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={handleTextToSpeech}
           >
             Text to Speech
           </button>
           <button
-            className={`w-full sm:w-auto border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
+            className={`w-full border text-white font-semibold rounded-lg py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-md ${buttonClass}`}
             onClick={toggleReadOnly}
           >
             {readOnly ? 'Enable Editing' : 'Disable Editing'}
