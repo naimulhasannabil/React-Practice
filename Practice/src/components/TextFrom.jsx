@@ -4,7 +4,8 @@ export default function TextFrom(props) {
   const [text, setText] = useState('');
   const [darkMode, setDarkMode] = useState(false);
   const [readOnly, setReadOnly] = useState(false);
-  const {wordLimit, setWordLimit} = useState(0);
+  const [wordLimit, setWordLimit] = useState(0);
+  const [wordLimitExceeded, setWordLimitExceeded] = useState(false);
 
   const handleUpClick = () => {
     let newText = text.toUpperCase();
