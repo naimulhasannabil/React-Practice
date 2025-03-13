@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
+import Alert from './Alert';
 
 export default function TextFrom(props) {
   const [text, setText] = useState('');
   const [darkMode, setDarkMode] = useState(false);
   const [readOnly, setReadOnly] = useState(false);
+  const [alert, setAlert] = useState(null); // State for managing alerts
+
+  // Function to show an alert
+  const showAlert = (type, message) => {
+    setAlert({ type, message });
+    setTimeout(() => {
+      setAlert(null); // Hide the alert after 3 seconds
+    }, 3000);
+  };
 
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    showAlert('success', 'Text converted to uppercase!');
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    showAlert('success', 'Text converted to lowercase!');
   };
 
   const handleClearClick = () => {
     setText('');
+    showAlert('warning', 'Text cleared!');
   };
 
   const handleOnChange = (event) => {
@@ -27,27 +40,31 @@ export default function TextFrom(props) {
     let text = document.getElementById('description');
     text.select();
     navigator.clipboard.writeText(text.value).then(() => {
-      alert('Text copied to clipboard!');
+      showAlert('success', 'Text copied to clipboard!');
     });
   };
 
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(' '));
+    showAlert('success', 'Extra spaces removed!');
   };
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+    showAlert('info', `Dark mode ${darkMode ? 'disabled' : 'enabled'}!`);
   };
 
   const handleReverseText = () => {
     let newText = text.split('').reverse().join('');
     setText(newText);
+    showAlert('success', 'Text reversed!');
   };
 
   const handleCapitalizeWords = () => {
     let newText = text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     setText(newText);
+    showAlert('success', 'Words capitalized!');
   };
 
   const handleDownload = () => {
@@ -58,15 +75,18 @@ export default function TextFrom(props) {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+    showAlert('success', 'Text downloaded!');
   };
 
   const handleTextToSpeech = () => {
     const utterance = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(utterance);
+    showAlert('info', 'Text converted to speech!');
   };
 
   const toggleReadOnly = () => {
     setReadOnly(!readOnly);
+    showAlert('info', `Editing ${readOnly ? 'enabled' : 'disabled'}!`);
   };
 
   // Dynamic classes based on dark mode
@@ -81,6 +101,15 @@ export default function TextFrom(props) {
   return (
     <div className={`min-h-screen ${containerClass}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Alert Component */}
+        {alert && (
+          <Alert
+            type={alert.type}
+            message={alert.message}
+            onClose={() => setAlert(null)}
+          />
+        )}
+
         {/* Heading */}
         <div className="flex justify-between items-center">
           <h1 className="ml-3 my-3 text-2xl sm:text-3xl lg:text-4xl">{props.heading}</h1>
