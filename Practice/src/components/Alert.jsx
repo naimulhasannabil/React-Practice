@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Alert from './Alert';
 
-function Alert() {
+function App() {
+  const [showAlert, setShowAlert] = useState(true);
+
+  const handleClose = () => {
+    setShowAlert(false);
+  };
+
   return (
-    <div>Alert</div>
-  )
+    <div>
+      {showAlert && (
+        <Alert
+          type="success"
+          message="Your action was successful!"
+          onClose={handleClose}
+        />
+      )}
+    </div>
+  );
 }
 
-export default Alert
+export default App;
