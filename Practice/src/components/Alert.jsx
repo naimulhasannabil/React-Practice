@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
-import Alert from './Alert';
+import React from 'react';
 
-function App() {
-  const [showAlert, setShowAlert] = useState(true);
+function Alert(props) {
+  const { type, message, onClose } = props;
 
-  const handleClose = () => {
-    setShowAlert(false);
-  };
+  // Determine the alert class based on the type
+  const alertClass = `alert alert-${type}`;
 
   return (
-    <div>
-      {showAlert && (
-        <Alert
-          type="success"
-          message="Your action was successful!"
-          onClose={handleClose}
-        />
+    <div className={alertClass} role="alert">
+      {message}
+      {onClose && (
+        <button type="button" className="close" onClick={onClose}>
+          <span aria-hidden="true">&times;</span>
+        </button>
       )}
     </div>
   );
 }
 
-export default App;
+// Define default props (optional)
+Alert.defaultProps = {
+  type: 'info', // Default alert type
+  message: 'This is an alert message.', // Default message
+  onClose: null, // No close button by default
+};
+
+export default Alert;
