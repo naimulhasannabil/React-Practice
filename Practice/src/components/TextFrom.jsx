@@ -7,6 +7,8 @@ export default function TextFrom(props) {
   const [readOnly, setReadOnly] = useState(false);
   const [alert, setAlert] = useState(null); // State for managing alerts
 
+  // Effect to Update the Document title based on dark mode
+
   // Function to show an alert
   const showAlert = (type, message) => {
     setAlert({ type, message });
