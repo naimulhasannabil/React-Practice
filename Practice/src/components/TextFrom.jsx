@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Alert from './Alert';
 
 export default function TextFrom(props) {
@@ -7,10 +7,16 @@ export default function TextFrom(props) {
   const [readOnly, setReadOnly] = useState(false);
   const [alert, setAlert] = useState(null); // State for managing alerts
 
-  // Effect to Update the Document title based on dark mode
+  // Effect to update the document title based on dark mode
   useEffect(() => {
+    // Set the initial title to "TextUtils - Home"
+    document.title = 'TextUtils - Home';
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  useEffect(() => {
+    // Update the title based on dark mode state
     document.title = darkMode ? 'TextUtils - DarkMode' : 'TextUtils - LightMode';
-  });
+  }, [darkMode]); // Runs whenever darkMode changes
 
   // Function to show an alert
   const showAlert = (type, message) => {
