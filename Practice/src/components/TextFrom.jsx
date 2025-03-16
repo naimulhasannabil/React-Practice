@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Alert from './Alert';
 
 export default function TextFrom(props) {
@@ -8,6 +8,9 @@ export default function TextFrom(props) {
   const [alert, setAlert] = useState(null); // State for managing alerts
 
   // Effect to Update the Document title based on dark mode
+  useEffect(() => {
+
+  });
 
   // Function to show an alert
   const showAlert = (type, message) => {
