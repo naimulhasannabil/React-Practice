@@ -9,7 +9,7 @@ export default function TextFrom(props) {
 
   // Effect to Update the Document title based on dark mode
   useEffect(() => {
-
+    document.title = darkMode ? 'TextUtils - DarkMode' : 'TextUtils - LightMode';
   });
 
   // Function to show an alert
