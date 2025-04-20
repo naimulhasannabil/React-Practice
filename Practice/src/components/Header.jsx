@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogout = () => {
+    onLogout();
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-white shadow-md">
@@ -13,17 +18,19 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
             <Link to="/about" className="text-gray-700 hover:text-blue-600">About</Link>
             <Link to="/services" className="text-gray-700 hover:text-blue-600">Services</Link>
             <Link to="/doctors" className="text-gray-700 hover:text-blue-600">Doctors</Link>
             <Link to="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
+            <button 
+              onClick={handleLogout}
+              className="btn-secondary ml-4"
+            >
+              Logout
+            </button>
           </nav>
-
-          <div className="hidden md:block">
-            <Link to="/contact" className="btn-primary">Book Appointment</Link>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -51,7 +58,12 @@ const Header = () => {
               <Link to="/services" className="text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Services</Link>
               <Link to="/doctors" className="text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Doctors</Link>
               <Link to="/contact" className="text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-              <Link to="/contact" className="btn-primary w-full text-center" onClick={() => setIsMenuOpen(false)}>Book Appointment</Link>
+              <button 
+                onClick={handleLogout}
+                className="btn-secondary w-full text-center"
+              >
+                Logout
+              </button>
             </nav>
           </div>
         )}
